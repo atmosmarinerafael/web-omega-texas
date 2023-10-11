@@ -23,7 +23,7 @@ export default function CalendarComp() {
 
 
     useEffect(() => {
-        const promise = axios.get("http://localhost:3000/api/proxy");
+        const promise = axios.get("/api/proxy");
 
         promise.then(res => setHtml(res.data))
 
