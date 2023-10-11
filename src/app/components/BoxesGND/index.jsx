@@ -7,14 +7,11 @@ export default function BoxesGND({selectedDate}) {
 
     let baseUrl = ""
 
-    console.log(date)
     if(date < 10) {
         baseUrl ="http://client.atmosmarine.com/omega-texas/sophia-qmmwb/202310/OpForecast_2023100"
     } else {
         baseUrl = "http://client.atmosmarine.com/omega-texas/sophia-qmmwb/202310/OpForecast_202310"
     }
-
-    console.log(baseUrl)
 
     return(<BoxesContainer>
         <Box href={`${baseUrl}${date}00_TimeSeries_WindSpeed59m_QMMWB_GND01.html`} target="_blank">

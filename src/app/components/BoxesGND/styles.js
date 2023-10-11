@@ -19,9 +19,12 @@ export const Box = styled.a`
     font-weight: 600;
     border-radius: 5px;
     margin:0.5rem;
+    text-decoration: none;
 
     &:hover {
         background-color: #E60C79;
         cursor: pointer;
     }
+
+    
 `
