@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { Box, BoxesContainer, Container } from "./styles";
 
 
@@ -31,7 +31,7 @@ export default function BoxesGND({selectedDate, setGraphUrl, clicked, setClicked
            
             <BoxesContainer>
                 {GNDs.map( (GND, index) => (
-                    <Box clicked={clicked} index={index} onClick={() => handleClick(GND, index)}>{GND}</Box>
+                    <Box key={index} clicked={clicked} index={index} onClick={() => handleClick(GND, index)}>{GND}</Box>
                 ))}
 
                 
