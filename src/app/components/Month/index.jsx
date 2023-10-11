@@ -1,12 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import axios from "axios"
-import cheerio from "cheerio";
+import { useEffect, useState } from "react";
+import * as cheerio from "cheerio";
+import axios from "axios";
 
-export default function Calendar() {
-    const [html, setHtml] = useState("");
-    const [month, setMonth] = useState("");
+export default function Month() {
+    const [html, setHtml] = useState([])
 
     useEffect(() => {
         const promise = axios.get("http://localhost:3000/api/proxy");
@@ -22,15 +21,18 @@ export default function Calendar() {
 const $ = cheerio.load(html);
 
 // Selecionar todos os elementos <a> e extrair os URLs
-const links = [];
+const months = [];
 $('a').each((index, element) => {
     const href = $(element).attr('href');
-    links.push(href);
+    months.push(href);
 });
 
-console.log(links);
+months.shift();
 
-    return (<>
-        Calender
-    </>)
+
+
+console.log(months);
+
+
+    return(<>Month</>)
 }

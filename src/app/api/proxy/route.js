@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const DATA_SOURCE_URL = "http://client.atmosmarine.com/omega-texas/sophia-qmmwb"
+const DATA_SOURCE_URL = "http://client.atmosmarine.com/omega-texas/sophia-qmmwb/202310"
 
 export async function GET(request) {
     try {
