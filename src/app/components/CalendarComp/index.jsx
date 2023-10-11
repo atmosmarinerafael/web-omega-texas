@@ -55,13 +55,12 @@ const findLastDate = links[links.length-1].match(regex);
 
 // precisa somar +1 por causa do horario universal
 const lastDate = parseInt(findLastDate[1])+1;
-
-console.log(startDate);
+;
 
     return (<CalendarStyles>
         <></>
         <Calendar minDate={new Date('2023-10-02')} maxDate={new Date(`2023-10-${lastDate}`)} selected={startDate} onChange={(date) => setStartDate(date)} locale="pt-BR" dateFormat="dd/MM/yyyy" />
         {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} locale="pr-BR" dateFormat="dd/MM/yyyy"/> */}
-        {startDate ? <BoxesGND /> : <h2>Selecione uma data.</h2>}
+        {startDate ? <BoxesGND selectedDate={startDate}/> : <h2>Selecione uma data.</h2>}
     </CalendarStyles>)
 }

@@ -8,7 +8,7 @@ export const BoxesContainer = styled.div`
     flex-wrap: wrap;
 `
 
-export const Box = styled.div`
+export const Box = styled.a`
     width: 5rem;
     height: 3rem;
     background-color: #024D95;
