@@ -1,7 +1,12 @@
-import { Box, BoxesContainer } from "./styles";
+import { useState } from "react";
+import { Box, BoxesContainer, Container } from "./styles";
 
 
-export default function BoxesGND({selectedDate}) {
+export default function BoxesGND({selectedDate, setGraphUrl, clicked, setClicked}) {
+    
+    const GNDs = ["GND01", "GND02", "GND03", "GND04", "GND05", "GND06"]
+
+    console.log(selectedDate)
 
     const date = selectedDate.getDate();
 
@@ -13,15 +18,24 @@ export default function BoxesGND({selectedDate}) {
         baseUrl = "http://client.atmosmarine.com/omega-texas/sophia-qmmwb/202310/OpForecast_202310"
     }
 
-    return(<BoxesContainer>
-        <Box href={`${baseUrl}${date}00_TimeSeries_WindSpeed59m_QMMWB_GND01.html`} target="_blank">
-            GND01
 
-        </Box>
-        <Box href={`${baseUrl}${date}00_TimeSeries_WindSpeed59m_QMMWB_GND02.html`} target="_blank">GND02</Box>
-        <Box href={`${baseUrl}${date}00_TimeSeries_WindSpeed59m_QMMWB_GND03.html`} target="_blank">GND03</Box>
-        <Box href={`${baseUrl}${date}00_TimeSeries_WindSpeed59m_QMMWB_GND04.html`} target="_blank">GND04</Box>
-        <Box href={`${baseUrl}${date}00_TimeSeries_WindSpeed59m_QMMWB_GND05.html`} target="_blank">GND05</Box>
-        <Box href={`${baseUrl}${date}00_TimeSeries_WindSpeed59m_QMMWB_GND06.html`} target="_blank">GND06</Box>
-    </BoxesContainer>)
+    function handleClick(GND, index) {
+        setGraphUrl(`${baseUrl}${date}00_TimeSeries_WindSpeed59m_QMMWB_${GND}.html`)
+        setClicked(index);
+    }
+
+    
+
+    return(
+        <Container>
+           
+            <BoxesContainer>
+                {GNDs.map( (GND, index) => (
+                    <Box clicked={clicked} index={index} onClick={() => handleClick(GND, index)}>{GND}</Box>
+                ))}
+
+                
+                
+            </BoxesContainer>
+        </Container>)
 }

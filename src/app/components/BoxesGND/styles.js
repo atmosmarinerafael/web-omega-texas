@@ -1,17 +1,24 @@
 import styled from "styled-components"
 
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+`
+
 export const BoxesContainer = styled.div`
     display: flex;
     width: 50vw;
     justify-content: space-evenly;
-    margin-top: 5rem;
     flex-wrap: wrap;
 `
 
 export const Box = styled.a`
     width: 5rem;
     height: 3rem;
-    background-color: #024D95;
+    background-color: ${props => props.clicked === props.index ? "#E60C79" :  "#024D95" };
     display: flex;
     justify-content: center;
     align-items: center;
